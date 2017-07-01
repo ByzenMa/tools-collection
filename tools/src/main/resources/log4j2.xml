@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration status="OFF">
-	<properties>
-		<!-- 基本的文件的输出信息的配置 -->
-		<property name="LOG_HOME">logs</property>
-		<property name="SERVER_NAME">nlp-tools</property>
-		<property name="BACKUP_HOME">${LOG_HOME}/backup</property>
-	</properties>
-	<appenders>
-		<Console name="Console" target="SYSTEM_OUT">
-			<PatternLayout
-				pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t]	%-5level %X{reqID} %C, line:%L, %M - %msg%xEx%n" />
-		</Console>
+    <properties>
+        <!-- 基本的文件的输出信息的配置 -->
+        <property name="LOG_HOME">logs</property>
+        <property name="SERVER_NAME">nlp-tools</property>
+        <property name="BACKUP_HOME">${LOG_HOME}/backup</property>
+    </properties>
+    <appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout
+                    pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t]	%-5level %X{reqID} %C, line:%L, %M - %msg%xEx%n"/>
+        </Console>
 
-		<!--这个会打印出所有的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档 -->
-		<RollingFile name="devLog" fileName="${LOG_HOME}/${SERVER_NAME}.log"
-			filePattern="${BACKUP_HOME}/$${date:yyyy-MM}/${SERVER_NAME}-%d{MM-dd-yyyy}-%i.log.gz">
-			<PatternLayout
-				pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t]	%-5level %X{reqID} %C, line:%L, %M - %msg%xEx%n" />
-			<Policies>
-				<SizeBasedTriggeringPolicy size="50MB" />
-			</Policies>
-		</RollingFile>
-		<!-- 异常错误控制文件 -->
-		<RollingFile name="errorLog" fileName="${LOG_HOME}/${SERVER_NAME}-error.log"
-			filePattern="${BACKUP_HOME}/$${date:yyyy-MM}/${SERVER_NAME}-error-%d{MM-dd-yyyy}-%i.log.gz">
-			<PatternLayout
-				pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %X{reqID} %C, line:%L %M - %msg%xEx%n" />
-			<ThresholdFilter level="error" onMatch="ACCEPT"
-				onMismatch="DENY" />
-			<Policies>
-				<SizeBasedTriggeringPolicy size="50MB" />
-			</Policies>
-		</RollingFile>
-		<!-- 输出输出的日志 -->
-		<RollingFile name="input" fileName="${LOG_HOME}/${SERVER_NAME}-input.log"
-			filePattern="${BACKUP_HOME}/$${date:yyyy-MM}/${SERVER_NAME}-input-%d{MM-dd-yyyy}-%i.log.gz">
-			<PatternLayout
-				pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %X{reqID} %C, line:%L %M - %msg%xEx%n" />
-			<!-- <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/> -->
-			<Policies>
-				<SizeBasedTriggeringPolicy size="50MB" />
-			</Policies>
-		</RollingFile>
-	</appenders>
+        <!--这个会打印出所有的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档 -->
+        <RollingFile name="devLog" fileName="${LOG_HOME}/${SERVER_NAME}.log"
+                     filePattern="${BACKUP_HOME}/$${date:yyyy-MM}/${SERVER_NAME}-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout
+                    pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t]	%-5level %X{reqID} %C, line:%L, %M - %msg%xEx%n"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="50MB"/>
+            </Policies>
+        </RollingFile>
+        <!-- 异常错误控制文件 -->
+        <RollingFile name="errorLog" fileName="${LOG_HOME}/${SERVER_NAME}-error.log"
+                     filePattern="${BACKUP_HOME}/$${date:yyyy-MM}/${SERVER_NAME}-error-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout
+                    pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %X{reqID} %C, line:%L %M - %msg%xEx%n"/>
+            <ThresholdFilter level="error" onMatch="ACCEPT"
+                             onMismatch="DENY"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="50MB"/>
+            </Policies>
+        </RollingFile>
+        <!-- 输出输出的日志 -->
+        <RollingFile name="input" fileName="${LOG_HOME}/${SERVER_NAME}-input.log"
+                     filePattern="${BACKUP_HOME}/$${date:yyyy-MM}/${SERVER_NAME}-input-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout
+                    pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %X{reqID} %C, line:%L %M - %msg%xEx%n"/>
+            <!-- <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/> -->
+            <Policies>
+                <SizeBasedTriggeringPolicy size="50MB"/>
+            </Policies>
+        </RollingFile>
+    </appenders>
 
-	<loggers>
-		<logger name="com.chanjet" level="info" additivity="False"><!-- 这个保证 了input不打印 -->
-			<appender-ref ref="devLog" />
-			<appender-ref ref="errorLog" />
-			<appender-ref ref="Console" />
-		</logger>
-		<root level="info">
-			<appender-ref ref="Console" />
-			<appender-ref ref="input" />
-		</root>
-	</loggers>
+    <loggers>
+        <logger name="com.chanjet" level="info" additivity="False"><!-- 这个保证 了input不打印 -->
+            <appender-ref ref="devLog"/>
+            <appender-ref ref="errorLog"/>
+            <appender-ref ref="Console"/>
+        </logger>
+        <root level="info">
+            <appender-ref ref="Console"/>
+            <appender-ref ref="input"/>
+        </root>
+    </loggers>
 </configuration>
