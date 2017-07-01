@@ -1,9 +1,9 @@
 package com.nlp.basic.tools.json;
 
-import java.util.Calendar;
-
 import com.google.gson.Gson;
 import com.nlp.basic.tools.auxiliary.People;
+
+import java.util.Calendar;
 
 /**
  * In this example you’ll see how the Gson library handles the object fields.
@@ -25,7 +25,7 @@ public class ObjectToJson {
 		Calendar dob = Calendar.getInstance();
 		dob.set(1980, Calendar.NOVEMBER, 11);
 		People people = new People("John", "350 Banana St.", dob.getTime());
-		people.setSecret("This is a secret!");
+        people.setSecret();
 
 		Gson gson = new Gson();
 		String json = gson.toJson(people);
