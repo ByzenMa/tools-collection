@@ -34,7 +34,7 @@ public class RequestCase {
         params.put("type", "email");
 
         String paramsJson = gson.toJson(params);
-        String url = "http://localhost:9000/extractor";
+        String url = "http://localhost:9000/extract";
         String result = null;
         try {
             result = postDataWithJson(url, paramsJson);
