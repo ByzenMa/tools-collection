@@ -59,7 +59,7 @@ public class TinyTools {
 
 
     /**
-     * 打印数组中的出现次数
+     * 打印数组中的各个元素出现次数
      *
      * @param a
      * @param m
