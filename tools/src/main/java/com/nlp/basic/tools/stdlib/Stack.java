@@ -1,4 +1,5 @@
-package com.nlp.basic.tools.stdlib; /******************************************************************************
+package com.nlp.basic.tools.stdlib;
+/******************************************************************************
  *  Compilation:  javac Stack.java
  *  Execution:    java Stack < input.txt
  *  Dependencies: StdIn.java StdOut.java
