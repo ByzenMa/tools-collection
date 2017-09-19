@@ -33,4 +33,18 @@ public class UnorderedArrayMaxPQ {
         pq[n--] = 0;
         return temp;
     }
+
+
+    public static void main(String[] args) {
+        String in = "PRIO*R**I*T*Y***QUE***U*E";
+        char[] inChars = in.toCharArray();
+        UnorderedArrayMaxPQ pq = new UnorderedArrayMaxPQ(30);
+        for (char c : inChars) {
+            if (c == '*') {
+                System.out.print((char) pq.delete() + " ");
+            } else {
+                pq.insert(c);
+            }
+        }
+    }
 }
