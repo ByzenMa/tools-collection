@@ -1,5 +1,7 @@
 package LeetCode;
 
+import java.util.Arrays;
+
 public class RotatedSortedArray {
 
     public int search(int[] nums, int target) {
@@ -28,5 +30,6 @@ public class RotatedSortedArray {
 
         int[] b = {4, 5, 6, 7, 8, 1, 2, 3};
         System.out.println(test.search(b, 8));
+        Arrays.sort(b);
     }
 }
