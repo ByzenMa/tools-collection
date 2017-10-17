@@ -1,5 +1,7 @@
 package LeetCode;
 
+import com.nlp.basic.tools.stdlib.Queue;
+
 public class StringPermutation {
 
     public static void permutation(char[] s, int from, int to) {
@@ -52,7 +54,21 @@ public class StringPermutation {
     }
 
     public static void printCombination(char[] s) {
-
+        Queue<String> q = new Queue<String>();
+        q.enqueue("");
+        int start = 0, len = 0;
+        while (q.size() > 0) {
+            String p = q.dequeue();
+            if (p.length() > len) {
+                len = p.length();
+                start = len;
+            }
+            for (int i = start; i < s.length; i++) {
+                System.out.println(p + s[i]);
+                q.enqueue(p + s[i]);
+            }
+            start++;
+        }
     }
 
 
@@ -60,6 +76,7 @@ public class StringPermutation {
         char[] s = {'a', 'b', 'c'};
 //        permutation(s, 0, 2);
 //        permutationAll(s, "");
-        combination2(s, 0, "");
+//        combination2(s, 0, "");
+        printCombination(s);
     }
 }
