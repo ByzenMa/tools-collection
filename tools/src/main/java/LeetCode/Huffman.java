@@ -43,7 +43,6 @@ public class Huffman {
         x[n2] = tmp;
     }
 
-
     public static void main(String[] args) {
         int[] weights = {5, 4, 3, 2, 1};
         String[] vals = {"A", "B", "C", "D", "E"};
@@ -58,7 +57,6 @@ public class Huffman {
     }
 
 }
-
 
 class HufMNode {
     int weigth;
