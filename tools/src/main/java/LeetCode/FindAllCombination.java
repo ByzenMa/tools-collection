@@ -17,6 +17,6 @@ public class FindAllCombination {
     }
 
     public static void main(String[] args) {
-        find(10, 9, "");
+        find(10, 15, "");
     }
 }
