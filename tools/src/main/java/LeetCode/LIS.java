@@ -1,8 +1,8 @@
 package LeetCode;
 
-public class SLI {
+public class LIS {
 
-    public static int sli(int[] x) {
+    public static int lis(int[] x) {
         int[] c = new int[x.length];
         c[0] = 1;
         int N = x.length;
