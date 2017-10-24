@@ -11,6 +11,7 @@ public class PerfectShuffle {
     }
 
     public static void exch(int[] x, int i, int j) {
+        if (i == j) return;
         int tmp = x[i];
         x[i] = x[j];
         x[j] = tmp;
