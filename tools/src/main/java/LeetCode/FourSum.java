@@ -34,5 +34,6 @@ public class FourSum {
         int[] x = {1, 0, -1, 0, -2, 2};
         List<List<Integer>> r = fourSum(x, 0);
         System.out.println(r);
+        String s = "abc";
     }
 }
