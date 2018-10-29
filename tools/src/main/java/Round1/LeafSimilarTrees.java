@@ -14,7 +14,7 @@ public class LeafSimilarTrees {
         if (ls1.size() != ls2.size()) return false;
 
         for (int i = 0; i < ls1.size(); i++)
-            if (ls1.get(i) != ls2.get(2)) return false;
+            if (ls1.get(i) != ls2.get(i)) return false;
 
         return true;
     }
