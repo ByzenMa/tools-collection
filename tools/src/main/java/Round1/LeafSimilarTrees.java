@@ -34,7 +34,6 @@ public class LeafSimilarTrees {
             if (current.left == null && current.right == null) queue.add(current);
             if (current.right != null) stack.push(current.right);
             if (current.left != null) stack.push(current.left);
-
         }
 
         while (!queue.isEmpty()) ls.add(queue.poll().val);
