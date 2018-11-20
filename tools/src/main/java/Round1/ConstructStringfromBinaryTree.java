@@ -10,5 +10,6 @@ public class ConstructStringfromBinaryTree {
         if (t.right == null)
             return t.val + "(" + tree2str(t.left) + ")";
         return t.val + "(" + tree2str(t.left) + ")(" + tree2str(t.right) + ")";
+
     }
 }
